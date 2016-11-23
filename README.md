@@ -3,7 +3,10 @@
 ![demo](simple-implementation-jwt-golang-demo.gif)
 
 This repository created to show the example for using [JWT](https://jwt.io/) with this library [dgrijalva/jwt-go](https://github.com/dgrijalva/jwt-go)
-		
+
+# Demo
+Use this host [https://simple-jwt-golang.herokuapp.com/](https://simple-jwt-golang.herokuapp.com/)
+
 # Running & Using Application
 Make sure you already have [POSTMAN](https://www.getpostman.com/)
 
