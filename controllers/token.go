@@ -79,7 +79,7 @@ func CheckToken(c *gin.Context) {
 
 	}
 
-	var tokenParsing *models.JWTModel
+	var tokenParsing models.JWTModel
 	err = json.Unmarshal(raw, &tokenParsing)
 
 	if err != nil {

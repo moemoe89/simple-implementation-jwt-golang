@@ -3,28 +3,46 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "yDQQpeUxwqB3C+4opweg6znWJQk=",
+			"checksumSHA1": "2Fy1Y6Z3lRRX1891WF/+HT4XS2I=",
 			"path": "github.com/dgrijalva/jwt-go",
-			"revision": "f0777076321ab64f6efc15a82d9d23b98539b943",
-			"revisionTime": "2016-06-17T17:01:58Z"
+			"revision": "9ed569b5d1ac936e6494082958d63a6aa4fff99a",
+			"revisionTime": "2016-11-01T19:39:35Z"
 		},
 		{
-			"checksumSHA1": "z8Nkc6sZanYABfsgkjUfHGDq534=",
+			"checksumSHA1": "QeKwBtN2df+j+4stw3bQJ6yO4EY=",
+			"path": "github.com/gin-contrib/sse",
+			"revision": "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae",
+			"revisionTime": "2017-01-09T09:34:21Z"
+		},
+		{
+			"checksumSHA1": "wfq0vCZuuUUjczF2EasufD8VQ8k=",
 			"path": "github.com/gin-gonic/gin",
-			"revision": "52fcc5dbf6e94df33ad313858fb94b713e9d1b4a",
-			"revisionTime": "2015-09-25T10:14:45Z"
+			"revision": "85221af84cf6ee99dc900bc41912abc09acfc1b5",
+			"revisionTime": "2018-07-03T09:17:08Z"
 		},
 		{
-			"checksumSHA1": "g2zSqD3W+i4vQjDwuB4J4oRYbGc=",
+			"checksumSHA1": "BjShmaQTKI8+411rCb7LFqJkLA0=",
 			"path": "github.com/gin-gonic/gin/binding",
-			"revision": "52fcc5dbf6e94df33ad313858fb94b713e9d1b4a",
-			"revisionTime": "2015-09-25T10:14:45Z"
+			"revision": "85221af84cf6ee99dc900bc41912abc09acfc1b5",
+			"revisionTime": "2018-07-03T09:17:08Z"
 		},
 		{
-			"checksumSHA1": "/cPJSLLdEAWI/Mavbbe13RgSfP4=",
+			"checksumSHA1": "woO1qIxIeQ1bcbPSiMfAKk3r4xg=",
+			"path": "github.com/gin-gonic/gin/json",
+			"revision": "85221af84cf6ee99dc900bc41912abc09acfc1b5",
+			"revisionTime": "2018-07-03T09:17:08Z"
+		},
+		{
+			"checksumSHA1": "UofNu0l/AwtCBsjPzhtHBBwGv8Q=",
 			"path": "github.com/gin-gonic/gin/render",
-			"revision": "52fcc5dbf6e94df33ad313858fb94b713e9d1b4a",
-			"revisionTime": "2015-09-25T10:14:45Z"
+			"revision": "85221af84cf6ee99dc900bc41912abc09acfc1b5",
+			"revisionTime": "2018-07-03T09:17:08Z"
+		},
+		{
+			"checksumSHA1": "kBeNcaKk56FguvPSUCEaH6AxpRc=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "8ee79997227bf9b34611aee7946ae64735e6fd93",
+			"revisionTime": "2016-11-17T03:31:26Z"
 		},
 		{
 			"checksumSHA1": "aS2jT6HBJiwT6aJ558oKjWD7tbY=",
@@ -33,40 +51,34 @@
 			"revisionTime": "2015-08-16T19:56:00Z"
 		},
 		{
-			"checksumSHA1": "MmQYoOadcQ5goARLjCqlSTAT03Y=",
-			"path": "github.com/manucorporat/sse",
-			"revision": "fe6ea2c8e398672518ef204bf0fbd9af858d0e15",
-			"revisionTime": "2015-07-15T18:48:05Z"
-		},
-		{
-			"checksumSHA1": "sEvWJKs6aL3UR/p4v7idVo54urY=",
-			"path": "github.com/mattn/go-colorable",
-			"revision": "40e4aedc8fabf8c23e040057540867186712faa5",
-			"revisionTime": "2015-06-25T15:46:42Z"
-		},
-		{
-			"checksumSHA1": "NkbetqlpWBi3gP08JDneC+axTKw=",
+			"checksumSHA1": "w5RcOnfv5YDr3j2bd1YydkPiZx4=",
 			"path": "github.com/mattn/go-isatty",
-			"revision": "56b76bdf51f7708750eac80fa38b952bb9f32639",
-			"revisionTime": "2015-12-11T00:06:21Z"
+			"revision": "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c",
+			"revisionTime": "2017-11-07T05:05:31Z"
 		},
 		{
-			"checksumSHA1": "9jjO5GjLa0XF/nfWihF02RoH4qc=",
-			"path": "golang.org/x/net/context",
-			"revision": "2a35e686583654a1b89ca79c4ac78cb3d6529ca3",
-			"revisionTime": "2016-05-06T19:47:26Z"
+			"checksumSHA1": "FvRJ/qkgQBxTMFKU1ynHGV5qGRc=",
+			"path": "github.com/ugorji/go/codec",
+			"revision": "7d51bbe6161dcb8f32a1252c27668ce36e3ef16b",
+			"revisionTime": "2018-06-28T10:27:55Z"
 		},
 		{
-			"checksumSHA1": "8fD/im5Kwvy3JgmxulDTambmE8w=",
+			"checksumSHA1": "uTQtOqR0ePMMcvuvAIksiIZxhqU=",
 			"path": "golang.org/x/sys/unix",
-			"revision": "a408501be4d17ee978c04a618e7a1b22af058c0e",
-			"revisionTime": "2016-07-03T23:56:20Z"
+			"revision": "d75a52659825e75fff6158388dddc6a5b04f9ba5",
+			"revisionTime": "2016-12-14T18:38:57Z"
 		},
 		{
-			"checksumSHA1": "5NDU2YJokde30yQDaobw8oV9Yys=",
-			"path": "gopkg.in/bluesuncorp/validator.v5",
-			"revision": "d5acf1dac43705f8bfbb71d878e290e2bed3950b",
-			"revisionTime": "2015-09-24T11:44:28Z"
+			"checksumSHA1": "39V1idWER42Lmcmg2Uy40wMzOlo=",
+			"path": "gopkg.in/go-playground/validator.v8",
+			"revision": "5f57d2222ad794d0dffb07e664ea05e2ee07d60c",
+			"revisionTime": "2016-07-18T13:41:25Z"
+		},
+		{
+			"checksumSHA1": "12GqsW8PiRPnezDDy0v4brZrndM=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "a5b47d31c556af34a302ce5d659e6fea44d90de0",
+			"revisionTime": "2016-09-28T15:37:09Z"
 		}
 	],
 	"rootPath": "simple-implementation-jwt-golang"
