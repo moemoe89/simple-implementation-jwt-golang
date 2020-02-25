@@ -79,4 +79,7 @@ How to stop the docker
 ```
 $ docker ps
 ```
-Copy the 
+Copy the CONTAINER ID
+```$xslt
+$ docker stop {$CONTAINER_ID}
+```

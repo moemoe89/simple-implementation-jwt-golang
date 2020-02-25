@@ -17,7 +17,7 @@ import (
 	"github.com/kataras/iris/v12"
 )
 
-const(
+const (
 	hmacSecret = "momo12345"
 )
 
@@ -32,12 +32,11 @@ func NewCtrl() *ctrl {
 
 func (ct *ctrl) Generate(c iris.Context) {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
-		"third_party": "momo",
+		"third_party":  "momo",
 		"expired_time": time.Now().Add(time.Minute * 1).Unix(),
 	})
 
 	tokenString, err := token.SignedString([]byte(hmacSecret))
-
 	if err != nil {
 		c.StatusCode(iris.StatusInternalServerError)
 		c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{err.Error()}, nil))
@@ -45,7 +44,7 @@ func (ct *ctrl) Generate(c iris.Context) {
 	}
 
 	resp := map[string]interface{}{
-		"token":   tokenString,
+		"token": tokenString,
 	}
 	c.StatusCode(iris.StatusOK)
 	c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{"Successfully generated token."}, resp))
@@ -57,7 +56,6 @@ func (ct *ctrl) Parse(c iris.Context) {
 	token, err := jwt.Parse(unparsedToken, func(token *jwt.Token) (interface{}, error) {
 		return []byte(hmacSecret), nil
 	})
-
 	if err != nil {
 		c.StatusCode(iris.StatusInternalServerError)
 		c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{err.Error()}, nil))
@@ -65,7 +63,6 @@ func (ct *ctrl) Parse(c iris.Context) {
 	}
 
 	raw, err := json.Marshal(token.Claims)
-
 	if err != nil {
 		c.StatusCode(iris.StatusInternalServerError)
 		c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{err.Error()}, nil))
@@ -74,17 +71,16 @@ func (ct *ctrl) Parse(c iris.Context) {
 
 	var tokenParsing model.JWTModel
 	err = json.Unmarshal(raw, &tokenParsing)
-
 	if err != nil {
 		c.StatusCode(iris.StatusInternalServerError)
 		c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{err.Error()}, nil))
 		return
-	} else {
-		if time.Now().Unix() > int64(tokenParsing.ExpiredTime) {
-			c.StatusCode(iris.StatusUnauthorized)
-			c.JSON(model.NewGenericResponse(iris.StatusUnauthorized, cons.ERR, []string{"Token has been expired."}, nil))
-			return
-		}
+	}
+
+	if time.Now().Unix() > int64(tokenParsing.ExpiredTime) {
+		c.StatusCode(iris.StatusUnauthorized)
+		c.JSON(model.NewGenericResponse(iris.StatusUnauthorized, cons.ERR, []string{"Token has been expired."}, nil))
+		return
 	}
 
 	resp := map[string]interface{}{
