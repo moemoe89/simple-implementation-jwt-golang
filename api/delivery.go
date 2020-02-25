@@ -7,8 +7,8 @@
 package api
 
 import (
-	"simple-implementation-jwt-golang/api/api_struct/model"
-	cons "simple-implementation-jwt-golang/constant"
+	"github.com/moemoe89/simple-implementation-jwt-golang/api/api_struct/model"
+	cons "github.com/moemoe89/simple-implementation-jwt-golang/constant"
 
 	"encoding/json"
 	"time"
@@ -49,7 +49,6 @@ func (ct *ctrl) Generate(c iris.Context) {
 	}
 	c.StatusCode(iris.StatusOK)
 	c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{"Successfully generated token."}, resp))
-	return
 }
 
 func (ct *ctrl) Parse(c iris.Context) {
@@ -80,15 +79,12 @@ func (ct *ctrl) Parse(c iris.Context) {
 		c.StatusCode(iris.StatusInternalServerError)
 		c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{err.Error()}, nil))
 		return
-
 	} else {
-
 		if time.Now().Unix() > int64(tokenParsing.ExpiredTime) {
 			c.StatusCode(iris.StatusUnauthorized)
 			c.JSON(model.NewGenericResponse(iris.StatusUnauthorized, cons.ERR, []string{"Token has been expired."}, nil))
 			return
 		}
-
 	}
 
 	resp := map[string]interface{}{
@@ -96,5 +92,4 @@ func (ct *ctrl) Parse(c iris.Context) {
 	}
 	c.StatusCode(iris.StatusOK)
 	c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{"Successfully parsed token."}, resp))
-	return
 }

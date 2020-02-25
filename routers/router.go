@@ -7,11 +7,12 @@
 package routers
 
 import (
-	ap "simple-implementation-jwt-golang/api"
+	ap "github.com/moemoe89/simple-implementation-jwt-golang/api"
 
 	"github.com/kataras/iris/v12"
 )
 
+// GetRouter will create a variable that represent the iris.Application
 func GetRouter() *iris.Application {
 	router := iris.New()
 	router.Get("/ping", ap.Ping)

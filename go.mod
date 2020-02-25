@@ -1,4 +1,4 @@
-module simple-implementation-jwt-golang
+module github.com/moemoe89/simple-implementation-jwt-golang
 
 go 1.13
 

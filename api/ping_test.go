@@ -7,7 +7,7 @@
 package api_test
 
 import (
-	"simple-implementation-jwt-golang/routers"
+	"github.com/moemoe89/simple-implementation-jwt-golang/routers"
 
 	"testing"
 
