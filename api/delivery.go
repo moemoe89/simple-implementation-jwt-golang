@@ -10,36 +10,24 @@ import (
 	"github.com/moemoe89/simple-implementation-jwt-golang/api/api_struct/model"
 	cons "github.com/moemoe89/simple-implementation-jwt-golang/constant"
 
-	"encoding/json"
-	"time"
-
-	"github.com/dgrijalva/jwt-go"
 	"github.com/kataras/iris/v12"
-)
-
-const (
-	hmacSecret = "momo12345"
 )
 
 // ctrl struct represent the delivery for controller
 type ctrl struct {
+	svc Service
 }
 
 // NewCtrl will create an object that represent the ctrl struct
-func NewCtrl() *ctrl {
-	return &ctrl{}
+func NewCtrl(svc Service) *ctrl {
+	return &ctrl{svc: svc}
 }
 
 func (ct *ctrl) Generate(c iris.Context) {
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
-		"third_party":  "momo",
-		"expired_time": time.Now().Add(time.Minute * 1).Unix(),
-	})
-
-	tokenString, err := token.SignedString([]byte(hmacSecret))
+	tokenString, status, err := ct.svc.Generate()
 	if err != nil {
-		c.StatusCode(iris.StatusInternalServerError)
-		c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{err.Error()}, nil))
+		c.StatusCode(status)
+		c.JSON(model.NewGenericResponse(status, cons.ERR, []string{err.Error()}, nil))
 		return
 	}
 
@@ -47,39 +35,16 @@ func (ct *ctrl) Generate(c iris.Context) {
 		"token": tokenString,
 	}
 	c.StatusCode(iris.StatusOK)
-	c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{"Successfully generated token."}, resp))
+	c.JSON(model.NewGenericResponse(iris.StatusOK, cons.ERR, []string{"Successfully generated token."}, resp))
 }
 
 func (ct *ctrl) Parse(c iris.Context) {
 	unparsedToken := c.GetHeader("Authorization")
 
-	token, err := jwt.Parse(unparsedToken, func(token *jwt.Token) (interface{}, error) {
-		return []byte(hmacSecret), nil
-	})
+	tokenParsing, status, err := ct.svc.Parse(unparsedToken)
 	if err != nil {
-		c.StatusCode(iris.StatusInternalServerError)
-		c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{err.Error()}, nil))
-		return
-	}
-
-	raw, err := json.Marshal(token.Claims)
-	if err != nil {
-		c.StatusCode(iris.StatusInternalServerError)
-		c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{err.Error()}, nil))
-		return
-	}
-
-	var tokenParsing model.JWTModel
-	err = json.Unmarshal(raw, &tokenParsing)
-	if err != nil {
-		c.StatusCode(iris.StatusInternalServerError)
-		c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{err.Error()}, nil))
-		return
-	}
-
-	if time.Now().Unix() > int64(tokenParsing.ExpiredTime) {
-		c.StatusCode(iris.StatusUnauthorized)
-		c.JSON(model.NewGenericResponse(iris.StatusUnauthorized, cons.ERR, []string{"Token has been expired."}, nil))
+		c.StatusCode(status)
+		c.JSON(model.NewGenericResponse(status, cons.ERR, []string{err.Error()}, nil))
 		return
 	}
 
@@ -87,5 +52,5 @@ func (ct *ctrl) Parse(c iris.Context) {
 		"data": tokenParsing,
 	}
 	c.StatusCode(iris.StatusOK)
-	c.JSON(model.NewGenericResponse(iris.StatusInternalServerError, cons.ERR, []string{"Successfully parsed token."}, resp))
+	c.JSON(model.NewGenericResponse(iris.StatusOK, cons.ERR, []string{"Successfully parsed token."}, resp))
 }

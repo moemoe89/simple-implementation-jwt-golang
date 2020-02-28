@@ -34,6 +34,10 @@ Your project directory structure should look like this
 
 ```
 
+## Requirements
+
+Go >=
+
 ## Setup and Build
 
 * Setup Golang <https://golang.org/>
@@ -53,7 +57,7 @@ Make sure you already have [POSTMAN](https://www.getpostman.com/)
 
 	    > Running the application using `go run main.go`
 	    > Open your POSTMAN.
-		> Fill the url with localhost:8787/generate and choose GET method
+		> Fill the url with localhost:8789/generate and choose GET method
 		> You will get the response below :
 		  {
             "message": "Successfully generated token.",
@@ -73,7 +77,7 @@ Make sure you already have [POSTMAN](https://www.getpostman.com/)
 # Running with Docker
 ```
 $ docker build -t simple-implementation-jwt-golang .
-$ docker run -d -p 8787:8787 --name simple-jwt-go simple-implementation-jwt-golang
+$ docker run -d -p 8789:8789 --name simple-jwt-go simple-implementation-jwt-golang
 ```
 How to stop the docker
 ```

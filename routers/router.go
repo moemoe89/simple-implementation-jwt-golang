@@ -13,11 +13,11 @@ import (
 )
 
 // GetRouter will create a variable that represent the iris.Application
-func GetRouter() *iris.Application {
+func GetRouter(svc ap.Service) *iris.Application {
 	router := iris.New()
 	router.Get("/ping", ap.Ping)
 
-	ctrl := ap.NewCtrl()
+	ctrl := ap.NewCtrl(svc)
 
 	router.Get("/generate", ctrl.Generate)
 	router.Get("/parse", ctrl.Parse)
