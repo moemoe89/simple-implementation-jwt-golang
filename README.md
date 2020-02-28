@@ -6,7 +6,7 @@
 
 ![demo](simple-implementation-jwt-golang-demo.gif)
 
-Simple Implementation JWT Using Golang (Iris Framework) as Programming Language
+Simple Implementation JWT Using Golang (Iris Framework) with Go Mod as Programming Language
 
 This repository created to show the example for using [JWT](https://jwt.io/) with this library [dgrijalva/jwt-go](https://github.com/dgrijalva/jwt-go)
 
@@ -36,7 +36,7 @@ Your project directory structure should look like this
 
 ## Requirements
 
-Go >=
+Go >= 1.11
 
 ## Setup and Build
 

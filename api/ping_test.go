@@ -7,6 +7,7 @@
 package api_test
 
 import (
+	ap "github.com/moemoe89/simple-implementation-jwt-golang/api"
 	"github.com/moemoe89/simple-implementation-jwt-golang/routers"
 
 	"testing"
@@ -15,7 +16,8 @@ import (
 )
 
 func TestPingRoute(t *testing.T) {
-	router := routers.GetRouter()
+	svc := ap.NewService()
+	router := routers.GetRouter(svc)
 
 	e := httptest.New(t, router)
 	e.GET("/ping").Expect().Status(httptest.StatusOK)
